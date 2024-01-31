@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+withincircle.jks
+/app/tips.txt
