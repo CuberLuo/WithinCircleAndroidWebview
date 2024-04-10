@@ -19,6 +19,7 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.webkit.PermissionRequest" />
     <!-- 使用照相机权限 -->
     <uses-feature android:name="android.hardware.camera" />
     <!-- 自动聚焦权限 -->

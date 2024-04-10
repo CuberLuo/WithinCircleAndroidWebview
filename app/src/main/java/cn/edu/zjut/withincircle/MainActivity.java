@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.webkit.GeolocationPermissions;
 import android.webkit.JsResult;
+import android.webkit.PermissionRequest;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -38,7 +39,7 @@ import cn.edu.zjut.withincircle.utils.PermissionUtil;
 import cn.edu.zjut.withincircle.utils.WebViewUtil;
 
 public class MainActivity extends AppCompatActivity  {
-    private final String siteUrl = "https://within-circle.techvip.site/#/auth";
+    private final String siteUrl = "https://within-circle.techvip.site";
     private WebView webView;
     private boolean isPageFinished=false;
     private ValueCallback<Uri> mUploadMessage;
@@ -138,6 +139,12 @@ public class MainActivity extends AppCompatActivity  {
                 callback.invoke(origin, true, false);
                 super.onGeolocationPermissionsShowPrompt(origin, callback);
             }
+
+            @Override
+            public void onPermissionRequest(PermissionRequest request) {
+                request.grant(request.getResources());
+            }
+
             // 设置应用程序的标题title
             @Override
             public void onReceivedTitle(WebView view, String title) {
