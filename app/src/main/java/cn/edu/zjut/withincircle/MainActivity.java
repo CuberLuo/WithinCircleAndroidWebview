@@ -171,6 +171,12 @@ public class MainActivity extends AppCompatActivity  {
         webSettings.setDomStorageEnabled(true);
         //启用地理定位
         webSettings.setGeolocationEnabled(true);
+
+        // 获取到UserAgentString
+        String userAgent = webSettings.getUserAgentString();
+        String uaAppStr = "WithinCircle";
+        // 自定义标记WithinCircle
+        webSettings.setUserAgentString( userAgent+" "+uaAppStr);
     }
     private void takePhoto() {
         String filePath = Environment.getExternalStorageDirectory() + File.separator;
