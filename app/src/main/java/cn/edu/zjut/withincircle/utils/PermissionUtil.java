@@ -74,7 +74,8 @@ public class PermissionUtil {
             }
             if (hasPermissionDismiss) {//存在未授予的权限
                 if (showSystemSetting) {
-                    showSystemPermissionsSettingDialog(mActivity);//跳转到系统设置权限页面
+                    //showSystemPermissionsSettingDialog(mActivity);//跳转到系统设置权限页面
+                    LogUtil.i("权限未完全授予，应用无法正常运行");
                 } else {
                     repPermissionResult.OnReqPermissionNoPass();
                 }

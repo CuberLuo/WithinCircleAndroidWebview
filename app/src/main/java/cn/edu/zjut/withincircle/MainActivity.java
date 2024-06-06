@@ -199,8 +199,6 @@ public class MainActivity extends AppCompatActivity  {
         chooseAbove(resultCode, intent);
     }
     public void chooseAbove(int resultCode, Intent data) {
-        Log.e("Base", "调用方法  chooseAbove   " +data);
-
         if (Activity.RESULT_OK == resultCode) {
             updatePhotos();
 
@@ -210,15 +208,11 @@ public class MainActivity extends AppCompatActivity  {
                 Uri uriData = data.getData();
                 if (uriData != null) {
                     results = new Uri[]{uriData};
-                    for (Uri uri : results) {
-                        Log.e("Base", "系统里取到的图片：" + uri.toString());
-                    }
                     mUploadCallbackAboveL.onReceiveValue(results);
                 } else {
                     mUploadCallbackAboveL.onReceiveValue(null);
                 }
             } else {
-                Log.e("Base", "自己命名的图片：" + imageUri.toString());
                 mUploadCallbackAboveL.onReceiveValue(new Uri[]{imageUri});
             }
         } else {
@@ -227,7 +221,7 @@ public class MainActivity extends AppCompatActivity  {
         mUploadCallbackAboveL = null;
     }
     private void updatePhotos() {
-        // 该广播即使多发（即选取照片成功时也发送）也没有关系，只是唤醒系统刷新媒体文件
+        // 唤醒系统刷新媒体文件
         Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         intent.setData(imageUri);
         sendBroadcast(intent);
